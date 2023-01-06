@@ -5,9 +5,10 @@ import React, { FC } from 'react'
 type AuthFormProps = {
   callback: any,
   onClose: () => void
+  title: string
 }
 
-const AuthForm: FC<AuthFormProps> = ({ callback, onClose }) => {
+const AuthForm: FC<AuthFormProps> = ({ callback, onClose, title }) => {
   return (
     <Formik
       initialValues={{
@@ -52,7 +53,7 @@ const AuthForm: FC<AuthFormProps> = ({ callback, onClose }) => {
             <FormErrorMessage>{errors.password}</FormErrorMessage>
           </FormControl>
           <div className='text-right'>
-            <button className='px-2 py-1 | rounded | transition-all font-semibold bg-gray-200 hover:bg-gray-300' type='submit'>Sign up</button>
+            <button className='px-2 py-1 | rounded | transition-all font-semibold bg-gray-200 hover:bg-gray-300' type='submit'>{title}</button>
           </div>
         </form>
       )}

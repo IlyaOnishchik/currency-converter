@@ -17,7 +17,7 @@ const AuthModal: FC<AuthModalProps> = ({ title, isOpen, onClose, callback }) => 
         <ModalHeader>{title}</ModalHeader>
         <ModalCloseButton/>
         <ModalBody>
-          <AuthForm callback={callback} onClose={onClose}/>
+          <AuthForm callback={callback} onClose={onClose} title={title}/>
         </ModalBody>
       </ModalContent>
     </Modal>
