@@ -19,14 +19,14 @@ const CURRENCIES_QUERY = gql`
 
 const Rates = () => {
 
-  const { data: basicCurrencyData } = useQuery(CURRENCY_QUERY, { variables: { code: 'USD' } })
+  const { data: defaultBasicCurrencyData } = useQuery(CURRENCY_QUERY, { variables: { code: 'USD' } })
   const { data: defaultCurrenciesData } = useQuery(CURRENCIES_QUERY, { variables: { codes: ['EUR', 'BYN', 'RUB', 'PLN', 'UAH'] } })
   const { data: userData } = useCurrentUser()
 
   let otherCurrencies: Currency[] = []
   let userCurrencies: Currency[] = []
   if (userData) {
-    otherCurrencies = [...defaultCurrenciesData.currencies, basicCurrencyData.currency]
+    otherCurrencies = [...defaultCurrenciesData.currencies, defaultBasicCurrencyData.currency]
     userCurrencies = [...userData.currentUser.favoriteCurrencies, userData.currentUser.basicCurrency]
     otherCurrencies = otherCurrencies.filter((otherItem: Currency) => !userCurrencies.find((userItem: Currency) => userItem.id === otherItem.id))
   }
@@ -48,24 +48,21 @@ const Rates = () => {
               <RatesItem 
                 currency={userData.currentUser.basicCurrency} 
                 isBasic={true}
-                isFavorite={userData.currentUser.favoriteCurrencies.find((item: Currency) => item.id === userData.currentUser.basicCurrency.id) ? true : false}
-                onToggleFavorite={() => toggle(userData.currentUser.basicCurrency.id)}/>
+                isFavorite={userData.currentUser.favoriteCurrencies.find((item: Currency) => item.id === userData.currentUser.basicCurrency.id) ? true : false}/>
               {userData.currentUser.favoriteCurrencies.filter((item: Currency) => item.id !== userData.currentUser.basicCurrency.id).map((item: Currency) => 
                 <RatesItem 
                 currency={item} 
-                isFavorite={true}
-                onToggleFavorite={() => toggle(item.id)}/>
+                isFavorite={true}/>
               )}
               {otherCurrencies.map((item: Currency) => 
                 <RatesItem 
-                currency={item}
-                onToggleFavorite={() => toggle(item.id)}/>
+                currency={item}/>
               )}
             </>
           ) : (
             <>
-              {basicCurrencyData && <RatesItem currency={basicCurrencyData.currency} isBasic={true} onToggleFavorite={() => alert('Please sign in')}/>}
-              {defaultCurrenciesData && defaultCurrenciesData.currencies.map((item: Currency) => <RatesItem currency={item} onToggleFavorite={() => alert('Please sign in')}/>)}
+              {defaultBasicCurrencyData && <RatesItem currency={defaultBasicCurrencyData.currency} isBasic={true}/>}
+              {defaultCurrenciesData && defaultCurrenciesData.currencies.map((item: Currency) => <RatesItem currency={item}/>)}
             </>
           )
         }
