@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { converterApi } from './api/converterApi'
 import { converterReducer } from './slices/converterSlice'
+import { ratesReducer } from './slices/ratesSlice'
 
 export const store = configureStore({
   reducer: {
     [converterApi.reducerPath]: converterApi.reducer,
-    converter: converterReducer
+    converter: converterReducer,
+    rates: ratesReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware()
     .concat(converterApi.middleware)
