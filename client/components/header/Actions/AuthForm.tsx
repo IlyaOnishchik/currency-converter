@@ -1,6 +1,6 @@
+import { FC } from 'react'
 import { FormControl, FormErrorMessage, FormLabel, Input } from '@chakra-ui/react'
 import { Field, Formik } from 'formik'
-import React, { FC } from 'react'
 
 type AuthFormProps = {
   callback: any,

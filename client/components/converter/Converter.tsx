@@ -1,12 +1,13 @@
-import React, { ChangeEvent } from 'react'
+import { ChangeEvent } from 'react'
+
 import { useConvertQuery } from '../../redux/api/converterApi'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { changeFrom, changeTo } from '../../redux/slices/converterSlice'
 import Loading from '../common/Loading'
 import Input from './Input'
+import Select from './Select'
 import Result from './Result'
 import ReverseButton from './ReverseButton'
-import Select from './Select'
 
 const Converter = () => {
 

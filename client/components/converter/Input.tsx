@@ -1,4 +1,3 @@
-import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { changeAmount } from '../../redux/slices/converterSlice'
 

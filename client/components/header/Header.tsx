@@ -1,7 +1,6 @@
 import Logo from './Logo'
 import Actions from './Actions/Actions'
 
-
 const Header = () => {
   return (
     <header>

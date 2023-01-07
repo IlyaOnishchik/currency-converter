@@ -1,13 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { Currency } from '../../types/Currency'
 
 const apilayerBaseUrl = 'https://api.apilayer.com/currency_data/'
 const apilayerKey = 'yW8j7Pxh5d5Bn77JRgHeQGGLywpBQMtA'
-
-// const appcurrencyapiBaseUrl = 'https://api.currencyapi.com/v3/'
-// const appcurrencyapiKey = 'lzYTHifQ3bqSnytCPtRWWc5pzWeubwvoXMUd2FqT'
-// latest - http://api.currencyapi.com/v3/latest?apikey=lzYTHifQ3bqSnytCPtRWWc5pzWeubwvoXMUd2FqT&currencies=EUR%2CUSD%2CCAD&base_currency=BYN
-
 
 export const converterApi = createApi({
   reducerPath: 'converterApi',

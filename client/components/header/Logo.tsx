@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { BanknotesIcon as BanknotesIconOutline } from '@heroicons/react/24/outline'
-import { BanknotesIcon as BanknotesIconSolid } from '@heroicons/react/24/solid'
 
 const Logo = () => {
   return (
