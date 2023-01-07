@@ -22,7 +22,7 @@ const RatesItemAmount: FC<RatesItemAmountProps> = ({ isBasic, code, symbol }) =>
     <>
       {isLoading 
         ? <Loading/>
-        : <div className='basis-1/5 | text-center font-semibold'>{isBasic ? 1 : round(data.quotes[data.source + code])} {symbol}</div>}
+        : <div className='basis-2/5 | text-center font-semibold'>{isBasic ? 1 : round(data.quotes[data.source + code])} {symbol}</div>}
     </>
   )
 }

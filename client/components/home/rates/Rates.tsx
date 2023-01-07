@@ -7,7 +7,7 @@ const Rates = () => {
       <div className='flex flex-col | gap-3 sm:gap-5'>
         <div className='flex | gap-5'>
           <div className='flex-auto | px-3 | text-lg font-bold'>Currency</div>
-          <div className='basis-1/5 | text-center text-lg font-bold'>Amount</div>
+          <div className='basis-2/5 | text-center text-lg font-bold'>Amount</div>
           <div className='basis-8'></div>
         </div>
         <RatesTable/>

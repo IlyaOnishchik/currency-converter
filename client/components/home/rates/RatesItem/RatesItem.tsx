@@ -32,7 +32,6 @@ const RatesItem: FC<RatesItemProps> = ({ currency, isBasic, isFavorite }) => {
         <div className=' | font-semibold whitespace-nowrap'>{currency.code}</div>
         <div className='hidden sm:block | font-semibold whitespace-nowrap'>{currency.name}</div>
       </div>
-      {/* <div className='basis-1/5 | text-center font-semibold'>{isBasic ? 1 : 2}</div> */}
       <RatesItemAmount isBasic={isBasic} code={currency.code} symbol={currency.symbol}/>
       <RatesItemButton isBasic={isBasic} variant={isFavorite ? 'solid' : 'outline'} onClick={handleToggleFavorite}/>
     </div>
