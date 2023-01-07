@@ -1,4 +1,6 @@
 import { useDisclosure } from '@chakra-ui/react'
+import { ArrowLeftOnRectangleIcon, CalculatorIcon, IdentificationIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 
 import { useAuth } from '../../../lib/auth'
 import Button from '../../common/Button'
@@ -13,14 +15,23 @@ const Actions = () => {
 
   return (
     <div className='flex items-center | gap-5'>
+      <Link href='/converter'>
+        <Button>
+          <CalculatorIcon className='w-6 h-6'/>
+        </Button>
+      </Link>
       {
         isSignedIn() ? (
           <Button onClick={signOut}>Sign out</Button>
         ) : (
           <>
-            <Button onClick={onSignInOpen}>Sign in</Button>
+            <Button onClick={onSignInOpen}>
+              <ArrowLeftOnRectangleIcon className='block w-6 h-6 m-auto'/>
+            </Button>
             <AuthModal title='Sign in' isOpen={isSignInOpen} onClose={onSignInClose} callback={signIn}/>
-            <Button onClick={onSignUpOpen}>Sign up</Button>
+            <Button onClick={onSignUpOpen}>
+              <IdentificationIcon className='block w-6 h-6 m-auto'/>
+            </Button>
             <AuthModal title='Sign up' isOpen={isSignUpOpen} onClose={onSignUpClose} callback={signUp}/>
           </>
         )

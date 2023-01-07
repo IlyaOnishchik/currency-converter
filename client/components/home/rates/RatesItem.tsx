@@ -18,15 +18,8 @@ const RatesItem: FC<RatesItemProps> = ({ currency, isBasic, isFavorite }) => {
   const { toggle } = useToggleUserFavoriteCurrency()
   const { set } = useSetUserBasicCurrency()
 
-  const handleToggleFavorite = () => {
-    if (userData) toggle(currency.id)
-    else alert('Please sign in') 
-  }
-
-  const handleSetBasic = () => {
-    if (userData) set(currency.id)
-    else alert('Please sign in')
-  }
+  const handleToggleFavorite = () => userData ? toggle(currency.id) : alert('Please sign in') 
+  const handleSetBasic = () => userData ? set(currency.id) : alert('Please sign in')
 
   return (
     <div className={`flex items-center | gap-5 pr-3 | rounded-xl ${isBasic ? 'bg-sky-300' : ''}`}>
@@ -38,7 +31,7 @@ const RatesItem: FC<RatesItemProps> = ({ currency, isBasic, isFavorite }) => {
         <div className=' | font-semibold whitespace-nowrap'>{currency.code}</div>
         <div className='hidden sm:block | font-semibold whitespace-nowrap'>{currency.name}</div>
       </div>
-      <div className='basis-1/5 | text-center font-semibold'>1</div>
+      <div className='basis-1/5 | text-center font-semibold'>{isBasic ? 1 : 2}</div>
       <RatesItemButton isBasic={isBasic} variant={isFavorite ? 'solid' : 'outline'} onClick={handleToggleFavorite}/>
     </div>
   )

@@ -16,7 +16,6 @@ const RatesItemButton: FC<RatesItemButtonProps> = ({ isBasic, variant, onClick }
       ) : (
         <HeartIconOutline className={`w-8 h-8 | transition-all ${isBasic ? 'text-white' : 'text-sky-300 hover:text-sky-500'}`}/>
       )}
-      
     </button>
   )
 }

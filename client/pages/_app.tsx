@@ -4,15 +4,19 @@ import { ChakraProvider } from '@chakra-ui/react'
 import MainLayout from '../layouts/MainLayout'
 import { AuthProvider } from '../lib/auth'
 import '../styles/globals.css'
+import { Provider } from 'react-redux'
+import { store } from '../redux/store'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
-      <ChakraProvider>
-        <MainLayout>
-          <Component {...pageProps} />
-        </MainLayout>
-      </ChakraProvider>
+      <Provider store={store}>
+        <ChakraProvider>
+          <MainLayout>
+            <Component {...pageProps} />
+          </MainLayout>
+        </ChakraProvider>
+      </Provider>
     </AuthProvider>
   )
 }

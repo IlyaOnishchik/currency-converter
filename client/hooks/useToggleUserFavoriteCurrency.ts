@@ -8,10 +8,7 @@ const TOGGLE_USER_FAVORITE_CURRENCY_MUTATION = gql`
 `
 
 export const useToggleUserFavoriteCurrency = () => {
-
   const [toggleUserFavoriteCurrency] = useMutation(TOGGLE_USER_FAVORITE_CURRENCY_MUTATION, { refetchQueries: [{ query: CURRENT_USER_QUERY }] })
-
   const toggle = (currencyId: string) => toggleUserFavoriteCurrency({ variables: { currencyId } })
-
   return { toggle }
 }
