@@ -19,7 +19,7 @@ const Select: FC<SelectProps> = ({ value, onChange }) => {
   const currencies = data.currencies
 
   return (
-    <select value={value} onChange={onChange}>
+    <select value={value} onChange={onChange} className='text-lg font-semibold'>
       {currencies.map((item: Currency) => <option>{item.code}</option>)}
     </select>
   )

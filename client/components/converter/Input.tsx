@@ -7,7 +7,12 @@ const Input = () => {
   const dispatch = useAppDispatch()
 
   return (
-    <input type="number" value={amount ? amount : ''} onChange={(e) => dispatch(changeAmount(+e.target.value))}/>
+    <input
+      className='px-4 py-2 rounded-xl shadow-inner text-lg font-semibold bg-sky-50'
+      type="number" 
+      value={amount ? amount : ''} 
+      onChange={(e) => dispatch(changeAmount(+e.target.value))}
+    />
   )
 }
 
