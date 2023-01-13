@@ -2,8 +2,10 @@ import { FC } from 'react'
 import { FormControl, FormErrorMessage, FormLabel, Input } from '@chakra-ui/react'
 import { Field, Formik } from 'formik'
 
+import { Credentials } from '../../../types/Credentials'
+
 type AuthFormProps = {
-  callback: any,
+  callback: ({ email, password }: Credentials) => void,
   onClose: () => void
   title: string
 }
