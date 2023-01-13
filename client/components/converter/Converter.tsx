@@ -17,7 +17,8 @@ const Converter = () => {
   const handleChangeFrom = (e: ChangeEvent<HTMLSelectElement>) => { dispatch(changeFrom(e.target.value)) }
   const handleChangeTo = (e: ChangeEvent<HTMLSelectElement>) => { dispatch(changeTo(e.target.value)) }
   
-  const { data, isLoading } = useConvertQuery({ from, to, amount })
+  const { data, error, isLoading } = useConvertQuery({ from, to, amount })
+  console.log(data)
 
   return (
     <section className='h-full'>
@@ -30,7 +31,7 @@ const Converter = () => {
             <Select value={to} onChange={handleChangeTo}/>
           </div>
           <Input/>
-          {isLoading ? <Loading/> : <Result result={data.result}/>}
+          {isLoading ? <Loading/> : error ? <div>Error</div> : data && <Result result={data.result}/>}
         </div>
       </div>
     </section>
