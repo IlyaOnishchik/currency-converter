@@ -25,7 +25,7 @@ function useProvideAuth() {
 
   useEffect(() => {
     setToken(tokenLC)
-  }, [])
+  }, [tokenLC])
 
   const isSignedIn = () => token ? true : false
 

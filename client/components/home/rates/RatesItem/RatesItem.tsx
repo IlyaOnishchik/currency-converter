@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import Image from 'next/image'
 
 import { useCurrentUser } from '../../../../hooks/useCurrentUser'
 import { useSetUserBasicCurrency } from '../../../../hooks/useSetUserBasicCurrency'
@@ -28,7 +29,7 @@ const RatesItem: FC<RatesItemProps> = ({ currency, isBasic, isFavorite }) => {
         className={`flex-auto | flex | gap-3 p-3 | transition-all rounded-xl ${isBasic ? '' : 'hover:bg-sky-200'} cursor-pointer`}
         onClick={handleSetBasic}
       >
-        <img src={`http://localhost:3001/${currency.imageName}`} alt={currency.name + ' country flag'} width='32px'/>
+        <Image src={`http://localhost:3001/${currency.imageName}`} alt={currency.name + ' country flag'} width={32} height={32}/>
         <div className=' | font-semibold whitespace-nowrap'>{currency.code}</div>
         <div className='hidden sm:block | font-semibold whitespace-nowrap'>{currency.name}</div>
       </div>
