@@ -1,14 +1,14 @@
-import { useAuth } from '../../../lib/auth'
+import { useCurrentUser } from '../../../hooks/useCurrentUser'
 import RatesTableAuthorized from './RatesTableAuthorized'
 import RatesTableUnauthorized from './RatesTableUnauthorized'
 
 const RatesTable = () => {
 
-  const { isSignedIn } = useAuth()
+  const { data: userData } = useCurrentUser()
 
   return (
     <>
-      {isSignedIn() ? <RatesTableAuthorized/> : <RatesTableUnauthorized/>}
+      {userData ? <RatesTableAuthorized/> : <RatesTableUnauthorized/>}
     </>
   )
 }

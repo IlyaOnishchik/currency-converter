@@ -1,17 +1,20 @@
 import { useDisclosure } from '@chakra-ui/react'
 import { ArrowLeftOnRectangleIcon, CalculatorIcon, IdentificationIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import { useCurrentUser } from '../../../hooks/useCurrentUser'
+import { useAuth } from '../../../lib/auth/useAuth'
 
-import { useAuth } from '../../../lib/auth'
 import Button from '../../common/Button'
 import AuthModal from './AuthModal'
 
 const Actions = () => {
 
-  const { isSignedIn, signUp, signIn, signOut } = useAuth()
+  const { signUp, signIn, signOut } = useAuth()
 
   const { isOpen: isSignInOpen, onOpen: onSignInOpen, onClose: onSignInClose } = useDisclosure()
   const { isOpen: isSignUpOpen, onOpen: onSignUpOpen, onClose: onSignUpClose } = useDisclosure()
+
+  const { data: userData } = useCurrentUser()
 
   return (
     <div className='flex items-center | gap-5'>
@@ -21,7 +24,7 @@ const Actions = () => {
         </Button>
       </Link>
       {
-        isSignedIn() ? (
+        userData ? (
           <Button onClick={signOut}>Sign out</Button>
         ) : (
           <>

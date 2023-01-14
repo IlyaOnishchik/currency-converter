@@ -2,13 +2,12 @@ import { FC } from 'react'
 import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay } from '@chakra-ui/react'
 
 import AuthForm from './AuthForm'
-import { Credentials } from '../../../types/Credentials'
 
 type AuthModalProps = {
   title: string
   isOpen: boolean
   onClose: () => void
-  callback: ({ email, password }: Credentials) => void,
+  callback: (email: string, password: string) => Promise<void>,
 }
 
 const AuthModal: FC<AuthModalProps> = ({ title, isOpen, onClose, callback }) => {

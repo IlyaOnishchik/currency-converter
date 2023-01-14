@@ -2,10 +2,8 @@ import { FC } from 'react'
 import { FormControl, FormErrorMessage, FormLabel, Input } from '@chakra-ui/react'
 import { Field, Formik } from 'formik'
 
-import { Credentials } from '../../../types/Credentials'
-
 type AuthFormProps = {
-  callback: ({ email, password }: Credentials) => void,
+  callback: (email: string, password: string) => Promise<void>,
   onClose: () => void
   title: string
 }
@@ -19,7 +17,7 @@ const AuthForm: FC<AuthFormProps> = ({ callback, onClose, title }) => {
       }}
       onSubmit={async (values) => {
         try {
-          await callback({ email: values.email, password: values.password })
+          await callback(values.email, values.password)
           onClose()
         } catch(error: any) {
           alert(error.message)
